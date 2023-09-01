@@ -1,0 +1,17 @@
+.container{
+    font-size: x-small;
+}
+
+.titulo {
+    position: relative;
+    width: 99%;
+    height: 20px;
+    background-color: rgb(204, 221, 174);
+    color: rgb(104, 104, 104);
+    top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 5px 8px;
+    left: 2px;
+}

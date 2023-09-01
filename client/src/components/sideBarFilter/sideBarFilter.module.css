@@ -1,0 +1,11 @@
+.container {
+    border: 0px;
+    padding: 0px;
+    height: 100vw;
+    width: 180px;
+    background: linear-gradient(to right, #128bbb, #49eec5) ;
+    position: absolute;
+    box-shadow: 5px 5px 8px;
+    z-index: 1;
+}
+

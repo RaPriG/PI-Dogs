@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    /* background-color: rgb(42, 42, 41); */
+    background: linear-gradient(to left, #06090e, #0e5e4c);
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    font-size: small;
+}
+
+ul {
+    display: flex;
+}
+
+li {
+    margin-right: 10px;
+    list-style: none;
+    border-right: 1px solid rgb(123, 123, 123);
+    padding-right: 5px;
+    cursor: pointer;
+    color: white;
+}
+
+li:hover {
+    font-weight: bold;
+}
