@@ -1,30 +1,29 @@
-.container {
+.container{
     position: relative;
-    height: 30px;
+    top:190px;
+    font-size: x-small;
 }
-
-.input {
-    position: absolute;
-    top: 35px;
-    margin-left: 2px;
-    width: 94%;
-    border: none;
-    box-shadow: 2px 2px 8px;
-    border-radius: 8PX;
-    left: 1px;
-    font-size: 11px;
-}
-
 .titulo {
     position: absolute;
     width: 99%;
     height: 18px;
     background-color: rgb(204, 221, 174);
     color: rgb(104, 104, 104);
-    top: -18px;
     display: flex;
     align-items: center;
     justify-content: center;
     left: 2px;
     font-size: 11px;
+}
+
+.containerInput{
+    position: absolute;
+    top:50px;
+}
+
+.lineDivide{
+    width: 100%;
+    border-top: 1px solid rgb(92, 92, 92);
+    margin-top: 5px;
+    margin-bottom: 2px;
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { ALL_DOGS, FILTER_DOGS } from './types';
-import { TheDogAPI } from '../../config/endpoints';
+import { ALL_DOGS, ALL_TEMPERAMENTS, FILTER_DOGS } from './types';
+import { TheDogAPI, TemperamentsAPI } from '../../config/endpoints';
 
 
 const all_dogs = () => {
@@ -40,7 +40,29 @@ const filter_dogs = (datos) => {
     }
 }
 
+const all_temperaments = () => {
+    return (dispatch) => {
+        axios(TemperamentsAPI)
+            .then(({ data }) => {
+                const temp = data.map(t => {
+                    return {
+                        value: t.id, label: t.name
+                    }
+                })
+                return dispatch({
+                    type: ALL_TEMPERAMENTS,
+                    payload: temp
+                })
+            })
+            .catch(error => {
+                return { error: error }
+            })
+    }
+
+}
+
 export {
     all_dogs,
-    filter_dogs
+    filter_dogs,
+    all_temperaments
 }

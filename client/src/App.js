@@ -21,6 +21,7 @@ function App() {
 
   useEffect(() => {
     dispatch(actions.all_dogs());
+    dispatch(actions.all_temperaments());
   }, [dispatch]);
 
   return (

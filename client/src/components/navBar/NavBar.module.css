@@ -1,7 +1,7 @@
 .container {
     display: flex;
     /* background-color: rgb(42, 42, 41); */
-    background: linear-gradient(to left, #06090e, #0e5e4c);
+    background: linear-gradient(to left, #06090e, #106e5a);
     align-items: center;
     justify-content: space-between;
     height: 40px;
@@ -23,4 +23,9 @@ li {
 
 li:hover {
     font-weight: bold;
+}
+
+.img{
+    width: 30px;
+    margin: 8px;
 }
