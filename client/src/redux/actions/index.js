@@ -19,10 +19,11 @@ const all_dogs = () => {
 }
 
 const filter_dogs = (datos) => {
+    console.log("DATA FILTER:", datos);
     return (dispatch) => {
         axios(TheDogAPI)
             .then(({ data }) => {
-                console.log(data);
+                
                 const busqedaDog = data.filter((dog) => {
                     return (datos.name.trim() !== '')
                         ? dog.name.toLowerCase().includes(datos.name.toLowerCase())

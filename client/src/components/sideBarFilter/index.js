@@ -11,15 +11,21 @@ const BarraLateralFilter = () => {
     const temperaments = useSelector(state => state.temperaments);
     const dispatch = useDispatch();
     const [dataFilter, setDataFilter] = useState({
-        name: ''
+        name: '',
+        filterTemp: []
     });
 
     const handlerChangeSearch = (e) => {
-        const { value } = e.target;
+        let value = dataFilter.name;
+        let filTemp = dataFilter.filterTemp;
+        if (!Array.isArray(e)) value = e.target.value;
+        else filTemp = e;
         let newArray = {
             ...dataFilter,
-            name: value
+            name: value,
+            filterTemp: filTemp
         }
+
         setDataFilter(newArray);
         handlerOnClick(newArray);
     }
@@ -29,8 +35,8 @@ const BarraLateralFilter = () => {
     }
     return (
         <div className={styles.container}>
-            <Search onChange={handlerChangeSearch} handlerOnClick={handlerOnClick} />
-            <FilterDog temperaments={temperaments} />
+            <Search onChange={handlerChangeSearch} />
+            <FilterDog temperaments={temperaments} handlerOnChange={handlerChangeSearch} />
             <OrderDog />
         </div>
     )

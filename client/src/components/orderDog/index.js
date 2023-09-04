@@ -10,16 +10,16 @@ const OrderDog = () => {
                     <input
                         type='radio'
                         name='groupAscDesc'
-                        value='descendente' />
-                    Descendente
+                        value='descending' />
+                    Descending
                 </label>
                 <br />
                 <label>
                     <input
                         type='radio'
                         name='groupAscDesc'
-                        value='ascendente' />
-                    Ascendente
+                        value='ascending' />
+                    Ascending
                 </label>
                 <br />
                 <div className={styles.lineDivide} />
@@ -35,7 +35,7 @@ const OrderDog = () => {
                     <input
                         type='radio'
                         name='orderByTempWei'
-                        value='ascendente' />
+                        value='weight' />
                     By Weight
                 </label>
             </div>

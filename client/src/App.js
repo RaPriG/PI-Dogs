@@ -15,8 +15,8 @@ function App() {
   const handleOnClose = () => {
 
   }
-  const handlerFilterDogs = (id) => {
-    dispatch(actions.filter_dogs(id));
+  const handlerFilterDogs = (dataFilter) => {
+    dispatch(actions.filter_dogs(dataFilter));
   }
 
   useEffect(() => {
