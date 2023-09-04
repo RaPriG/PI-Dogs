@@ -10,7 +10,7 @@ const arrayTemperaments = (dogsFromDB) => {
             temperament: temperaments // Renombramos el atributo aquí
         };
     });
-    console.log(dogsWithTemperaments);
+
     return dogsWithTemperaments;
 }
 

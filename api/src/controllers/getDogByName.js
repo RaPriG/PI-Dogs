@@ -7,11 +7,11 @@ const getDogByName = async (req, res) => {
     try {
 
         const { value } = req.query;
-        console.log(1);
+  
         const allDogsFromApi = await dogsByNameFromAPI(value);
 
         const dogFromApiMapped = !allDogsFromApi?.length ? [] : mappingDataDog(allDogsFromApi);
-        console.log(allDogsFromApi);
+   
         const dogFromDB = await getDogByNameFromDB(value);
 
         const dogFromApiAndDB = [...dogFromApiMapped, ...dogFromDB]
