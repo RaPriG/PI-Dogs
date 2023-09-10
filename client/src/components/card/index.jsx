@@ -1,6 +1,6 @@
 import styles from './Card.module.css';
 
-export default function Card({ image, name, temperament, weight_min, weight_max, key }) {
+export default function Card({ image, name, temperament, weight_min, weight_max }) {
 
     return (
         <div className={styles.container}>

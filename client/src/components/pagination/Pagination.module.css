@@ -1,0 +1,55 @@
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.btnPagination {
+    color: white;
+    min-width: 25px;
+    width: 25px;
+    height: 25px;
+    margin: 1px;
+    cursor: pointer;
+    font-size: 10px;
+    border-radius: 5px;
+    border: none;
+
+}
+
+.btnColorNormal {
+    background-color: rgb(22, 160, 130);
+   
+}
+
+.btnColorActive {
+    background-color: rgb(3, 46, 46);
+}
+
+
+.descripQuantPages {
+    background-color: rgb(12, 107, 107);
+    width: 68px;
+    height: 25px;
+    font-size: 10px;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1px;
+
+}
+
+.btnArrow{
+    margin: 1px;
+    background-color: rgb(199, 243, 197);
+    border: none;
+    height: 20px;
+    box-shadow: 0px 0px 2px;
+    cursor: pointer;
+}

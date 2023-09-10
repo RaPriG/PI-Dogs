@@ -1,45 +1,58 @@
 import styles from './OrderDog.module.css'
 
-const OrderDog = () => {
+const OrderDog = ({ handlerOnChange, dataOrder }) => {
 
     return (
         <div className={styles.container}>
             <h5 className={styles.titulo}>Order</h5>
             <div className={styles.containerInput}>
-                <label>
-                    <input
+
+                <label className={styles.pointer}>
+                    <input className={styles.input}
                         type='radio'
-                        name='groupAscDesc'
-                        value='descending' />
-                    Descending
-                </label>
-                <br />
-                <label>
-                    <input
-                        type='radio'
-                        name='groupAscDesc'
-                        value='ascending' />
+                        name='ascDesc'
+                        value='ascending'
+                        checked={dataOrder.ascDesc === 'ascending'}
+                        onChange={handlerOnChange} 
+                        id='des'/>
                     Ascending
                 </label>
                 <br />
-                <div className={styles.lineDivide} />
-                <label>
-                    <input
+
+                <label className={styles.pointer}>
+                    <input className={styles.input}
                         type='radio'
-                        name='orderByTempWei'
-                        value='temperament' />
-                    By Temperaments
+                        name='ascDesc'
+                        value='descending'
+                        checked={dataOrder.ascDesc === 'descending'}
+                        onChange={handlerOnChange} />
+                    Descending
+                </label>
+
+                <br />
+                <div className={styles.lineDivide} />
+
+                <label className={styles.pointer}>
+                    <input className={styles.input}
+                        type='radio'
+                        name='by'
+                        value='breed'
+                        checked={dataOrder.by === 'breed'}
+                        onChange={handlerOnChange} />
+                    By Breed
                 </label>
                 <br />
-                <label>
-                    <input
+
+                <label className={styles.pointer}>
+                    <input className={styles.input}
                         type='radio'
-                        name='orderByTempWei'
-                        value='weight' />
-                    By Weight
+                        name='by'
+                        value='weight'
+                        checked={dataOrder.by === 'weight'}
+                        onChange={handlerOnChange} />
+                    By Max Weight
                 </label>
             </div>
-
         </div>
     )
 }

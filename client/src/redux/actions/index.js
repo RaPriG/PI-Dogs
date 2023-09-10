@@ -1,11 +1,44 @@
 import axios from 'axios';
-import { ALL_DOGS, ALL_TEMPERAMENTS, FILTER_DOGS } from './types';
+import { ALL_DOGS, ALL_TEMPERAMENTS, FILTER_DOGS, NEW_DOG, CHANGE_PAGE } from './types';
 import { TheDogAPI, TemperamentsAPI } from '../../config/endpoints';
+import { filterByTemperaments, orderBy, filterByName } from './middleware';
 
+const changePage = (pageNumber) => {
+    return {
+        type: CHANGE_PAGE,
+        payload: pageNumber,
+    };
+};
+
+const filter_dogs = (datos) => {
+
+    return (dispatch) => {
+        axios(TheDogAPI)
+            .then(({ data }) => {
+
+                //filtering By Name
+                const filterDogs = data.filter((dog) => filterByName(dog, datos))
+
+                    //filtering By Temperaments And By Api Data or By Data DB
+                    .filter((dog) => filterByTemperaments(dog, datos))
+
+                    //Ordering By Ascending or Descending Temperament Or By Weight
+                    .sort((a, b) => orderBy(a, b, datos));
+
+                return dispatch({
+                    type: FILTER_DOGS,
+                    payload: filterDogs,
+                });
+            })
+            .catch(error => {
+                return { error: error }
+            })
+    }
+};
 
 const all_dogs = () => {
     return (dispatch) => {
-        axios(TheDogAPI)
+        axios.get(TheDogAPI)
             .then(({ data }) => {
                 return dispatch({
                     type: ALL_DOGS,
@@ -16,30 +49,7 @@ const all_dogs = () => {
                 return { error: error }
             })
     }
-}
-
-const filter_dogs = (datos) => {
-    console.log("DATA FILTER:", datos);
-    return (dispatch) => {
-        axios(TheDogAPI)
-            .then(({ data }) => {
-                
-                const busqedaDog = data.filter((dog) => {
-                    return (datos.name.trim() !== '')
-                        ? dog.name.toLowerCase().includes(datos.name.toLowerCase())
-                        : dog;
-                });
-
-                return dispatch({
-                    type: FILTER_DOGS,
-                    payload: busqedaDog,
-                });
-            })
-            .catch(error => {
-                return { error: error }
-            })
-    }
-}
+};
 
 const all_temperaments = () => {
     return (dispatch) => {
@@ -47,7 +57,7 @@ const all_temperaments = () => {
             .then(({ data }) => {
                 const temp = data.map(t => {
                     return {
-                        value: t.id, label: t.name
+                        id: t.id, name: t.name
                     }
                 })
                 return dispatch({
@@ -59,11 +69,31 @@ const all_temperaments = () => {
                 return { error: error }
             })
     }
+};
 
-}
+const newDog = (data) => {
+    return (dispatch) => {
+
+        axios.post(TheDogAPI, {
+            ...data
+        })
+            .then(({ data }) => {
+                return dispatch({
+                    type: NEW_DOG,
+                    payload: data
+                });
+            })
+            .catch(error => {
+                return { error: error }
+            })
+    }
+};
+
 
 export {
     all_dogs,
     filter_dogs,
-    all_temperaments
+    all_temperaments,
+    newDog,
+    changePage
 }

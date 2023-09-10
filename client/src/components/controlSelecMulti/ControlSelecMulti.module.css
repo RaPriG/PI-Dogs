@@ -1,0 +1,56 @@
+.containerListSelec {
+    width: 99%;
+    border: 1px solid black;
+    list-style: none;
+    background-color: white;
+    font-size: 11px;
+    color: rgb(102, 102, 102);
+    padding: 2px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.containerListSelected {
+    height: 60px;
+    width: 135px;
+    overflow: scroll;
+    border: 1px solid black;
+    list-style: none;
+    background-color: white;
+
+}
+
+.listaSelec {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+}
+
+.itemSelected {
+    width: 100%;
+    margin: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(68, 68, 68);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.close {
+    background-color: rgb(255, 76, 76);
+    margin-left: 5px;
+    width: 15px;
+    height: 12px;
+    cursor: pointer;
+    border-radius: 2px;
+    box-shadow: 1px 1px 5px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: normal;
+
+}

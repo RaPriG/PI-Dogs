@@ -1,8 +1,19 @@
-import { ALL_DOGS, FILTER_DOGS, ALL_TEMPERAMENTS } from '../actions/types';
+import {
+    ALL_DOGS,
+    FILTER_DOGS,
+    ALL_TEMPERAMENTS,
+    NEW_DOG,
+    CHANGE_PAGE
+} from '../actions/types';
 
 const inicialState = {
     dogs: [],
-    temperaments: []
+    temperaments: [],
+    pagination: {
+        currentPage: 1,
+        itemsPerPage: 8,
+        buttonPagination: 5,
+    }
 }
 
 const rootReducer = (state = inicialState, { type, payload }) => {
@@ -23,6 +34,21 @@ const rootReducer = (state = inicialState, { type, payload }) => {
             return {
                 ...state,
                 temperaments: payload
+            }
+
+        case NEW_DOG:
+            return {
+                ...state,
+                dogs: [...state.dogs, payload]
+            }
+
+        case CHANGE_PAGE:
+            return {
+                ...state,
+                pagination: {
+                    ...state.pagination,
+                    currentPage: payload
+                }
             }
 
         default: return { ...state }

@@ -25,6 +25,43 @@
 
 .select {
     font-size: xx-small;
-    width: 100%;
+    background-color: rgb(175, 214, 34);
+    min-height: 120px;
+    height: 120px;
+    overflow: scroll;
+}
 
+.containerSelecMulti{
+  
+    width: 100px !important;
+    min-height: 120px !important;
+    position: absolute;
+}
+
+.containerListSelec {
+    min-height: 120px;
+    height: 100px;
+    width: 120px;
+    overflow: scroll;
+    border: 1px solid black;
+    cursor: pointer;
+    list-style: none;
+    background-color: rgb(209, 36, 36);
+}
+
+.listaSelec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: blue;
+  
+}
+
+.pointer{
+    cursor: pointer;
+}
+
+.input{
+    vertical-align: middle;
 }

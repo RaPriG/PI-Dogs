@@ -8,11 +8,11 @@
     font-size: small;
 }
 
-ul {
+.menu {
     display: flex;
 }
 
-li {
+.item {
     margin-right: 10px;
     list-style: none;
     border-right: 1px solid rgb(123, 123, 123);
@@ -21,7 +21,7 @@ li {
     color: white;
 }
 
-li:hover {
+.item:hover {
     font-weight: bold;
 }
 
@@ -29,3 +29,4 @@ li:hover {
     width: 30px;
     margin: 8px;
 }
+

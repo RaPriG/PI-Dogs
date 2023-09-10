@@ -3,7 +3,8 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import LandingPage from './components/landingPage';
 import Cards from './components/cards';
 import Nav from './components/navBar';
-import BarraLateralFilter from './components/sideBarFilter';
+import NewDog from './components/newDog';
+import SideBarFilter from './components/sideBarFilter';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as actions from '../src/redux/actions';
@@ -11,6 +12,7 @@ import * as actions from '../src/redux/actions';
 function App() {
   const dispatch = useDispatch();
   const isRaiz = useLocation().pathname === '/';
+  const isHome = useLocation().pathname === '/home';
 
   const handleOnClose = () => {
 
@@ -26,11 +28,12 @@ function App() {
 
   return (
     <div>
-      {isRaiz ? null : <Nav/>}
-      {isRaiz ? null : <BarraLateralFilter fnFilterDogs={handlerFilterDogs}/>}
+      {isRaiz ? null : <Nav />}
+      {!isHome ? null : <SideBarFilter fnFilterDogs={handlerFilterDogs} />}
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<Cards onClose={handleOnClose} />} />
+        <Route path='/newdog' element={<NewDog />} />
       </Routes>
     </div>
   );

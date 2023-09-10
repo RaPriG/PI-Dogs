@@ -1,61 +1,60 @@
 import { useState } from 'react';
 import styles from './filterDog.module.css';
-import Select from 'react-select';
+import SelectorMultiple from '../controlSelecMulti';
 
 const FilterAndOrder = ({ temperaments, handlerOnChange }) => {
 
-    const [selectedTemperaments, setSelectedTemperaments] = useState([]);
+    const [filter, setFilter] = useState({
+        temperaments: [],
+        fromApi: false,
+        fromDB: false
+    });
 
     const handlerSelectTemperaments = (selected) => {
-        setSelectedTemperaments(selected);
-        handlerOnChange(selected);
+        const newFilter = {
+            ...filter,
+            temperaments: selected
+        }
+
+        setFilter(newFilter);
+        handlerOnChange(newFilter);
     }
 
-    const customStyles = {
-        control: (provided, state) => ({
-            ...provided,
-            minHeight: '20px', // Altura del control
-            maxHeight: '72px',
-            overflowY: 'auto',
-        }),
-        dropdownIndicator: (provided, state) => ({
-            ...provided,
-            display: 'none'
-        }),
-        clearIndicator: (provided, state) => ({
-            ...provided,
-            display: 'none'
-        }),
-    };
+    const handlerChangeFilterFrom = (e) => {
+        const { name, checked } = e.target;
+        const newFilter = {
+            ...filter,
+            [name]: checked,
+        }
 
+        setFilter(newFilter);
+        handlerOnChange(newFilter);
+    }
 
     return (
         <div className={styles.container}>
             <h5 className={styles.titulo}>Filter</h5>
             <div className={styles.containerInput}>
 
-                <label>
-                    Temperaments
-                    <div className={styles.select}>
-                        <Select
-                            options={temperaments}
-                            isMulti={true}
-                            value={selectedTemperaments}
-                            isSearchable={true}
-                            onChange={handlerSelectTemperaments}
-                            styles={customStyles}
-                            maxMenuHeight={150}
-                        >
-                        </Select>
-                    </div>
+                <SelectorMultiple
+                    temperaments={temperaments}
+                    handlerChange={handlerSelectTemperaments} />
+
+                <br />
+                <label className={styles.pointer}>
+                    <input className={styles.input}
+                        type='checkbox'
+                        name='fromApi'
+                        value={filter.fromApi}
+                        onChange={handlerChangeFilterFrom} />From Api
                 </label>
                 <br />
-                <label>
-                    <input type='checkbox' />From Api
-                </label>
-                <br />
-                <label>
-                    <input type='checkbox' />From DB
+                <label className={styles.pointer}>
+                    <input className={styles.input}
+                        type='checkbox'
+                        name='fromDB'
+                        value={filter.fromDB}
+                        onChange={handlerChangeFilterFrom} />From DB
                 </label>
             </div>
         </div>

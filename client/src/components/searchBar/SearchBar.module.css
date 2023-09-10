@@ -1,19 +1,19 @@
 .container {
     position: relative;
-    height: 30px;
+    height: 35px;
 }
 
 .input {
     position: absolute;
     top: 35px;
-    margin-left: 2px;
     width: 94%;
+    height: 15px;
     border: none;
     box-shadow: 2px 2px 8px;
     border-radius: 8PX;
     left: 1px;
     font-size: 11px;
-    text-indent: 30px;
+    text-align: center;
 }
 
 .titulo {
