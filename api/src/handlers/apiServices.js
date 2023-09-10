@@ -5,6 +5,7 @@ const { TheDogAPI, TheDogAPISearch, headers } = require('../../config');
 const allDogsFromAPI = async () => {
     try {
         const response = await axios(TheDogAPI, { headers });
+
         if (!response?.data || !response.data?.length) {
             return { response: false, status: 204, message: "API Not Data" };
         }

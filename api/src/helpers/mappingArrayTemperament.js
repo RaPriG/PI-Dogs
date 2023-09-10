@@ -7,7 +7,7 @@ const arrayTemperaments = (dogsFromDB) => {
         delete dog.dataValues.temperaments;
         return {
             ...dog.toJSON(),
-            temperament: temperaments // Renombramos el atributo aquí
+            temperament: temperaments.join(', ') // Renombramos el atributo aquí
         };
     });
 
