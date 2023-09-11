@@ -1,5 +1,5 @@
 .containerListSelec {
-    width: 99%;
+    width: 177px;
     border: 1px solid black;
     list-style: none;
     background-color: white;
@@ -17,7 +17,7 @@
     border: 1px solid black;
     list-style: none;
     background-color: white;
-
+    margin-top: 2px;
 }
 
 .listaSelec {

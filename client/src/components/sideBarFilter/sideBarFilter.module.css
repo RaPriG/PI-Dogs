@@ -4,9 +4,7 @@
     padding: 0px;
     height: 150vw;
     width: 180px;
-    /* background: linear-gradient(to right, #128bbb, #49eec5); */
     background: linear-gradient(to right, #0f9643, #38bd9c);
-
     box-shadow: 5px 5px 8px;
     z-index: 1;
 }

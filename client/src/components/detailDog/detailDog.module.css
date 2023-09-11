@@ -1,3 +1,81 @@
-.container{
-    
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 10px;
+    background-image: url('../../img/imgBackgroundPost.jpg'); /* Ruta a tu imagen de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la ventana */
+    background-repeat: no-repeat;
+}
+.containerDetail{
+    top:5px;
+    left: 50%;
+    background-color: rgba(48, 190, 143, 0.808);
+    position: absolute;
+    width: 40em;
+    height: auto;
+    transform: translate(-50%);
+    border-radius: 20px;
+}
+
+.iconBack{
+    margin: 20px;
+   font-size: 30px;
+   color: rgb(121, 148, 2);
+   box-shadow: 2px 2px 7px;
+}
+
+.containerImg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img{
+    border-radius: 50%;
+    width: 200px;
+    margin: 7px;
+    position: relative;
+  
+}
+.name{
+    background-color: rgb(232, 198, 27);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.id{
+    background-color: rgba(33, 168, 62, 0.527);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px 10px;
+
+}
+
+.height{
+    background-color: rgba(23, 124, 219, 0.4);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.weight{
+    background-color: rgba(98, 9, 150, 0.4);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.temperament{
+    background-color: rgba(5, 37, 21, 0.4);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px 10px;
+}
+
+.lifeSpan{
+    background-color: rgba(209, 56, 69, 0.514);
+    border-radius: 20px;
+    margin: 5px;
+    padding: 5px 10px;
 }

@@ -1,6 +1,7 @@
 import styles from './LandingPage.module.css';
-import img from '../../img/fondoInicial.jpg'
+import imgBackground from '../../img/imgBackgroundIni.jpg'
 import { useNavigate } from 'react-router-dom';
+
 const LandingPage = () => {
     const navegate = useNavigate();
     const handleGoHome = () => {
@@ -23,7 +24,7 @@ const LandingPage = () => {
                 <button className={styles.btn} onClick={handleGoHome}>Entrar</button>
             </div>
             <div className={styles.containerImg}>
-                <img className={styles.img} src={img} alt="" />
+                <img className={styles.img} src={imgBackground} alt="fondoInicial" />
             </div>
         </div>
     )

@@ -3,7 +3,8 @@ import {
     FILTER_DOGS,
     ALL_TEMPERAMENTS,
     NEW_DOG,
-    CHANGE_PAGE
+    CHANGE_PAGE,
+    FIND_BY_ID
 } from '../actions/types';
 
 const inicialState = {
@@ -13,7 +14,8 @@ const inicialState = {
         currentPage: 1,
         itemsPerPage: 8,
         buttonPagination: 5,
-    }
+    },
+    dogDetail: []
 }
 
 const rootReducer = (state = inicialState, { type, payload }) => {
@@ -50,6 +52,12 @@ const rootReducer = (state = inicialState, { type, payload }) => {
                     currentPage: payload
                 }
             }
+
+            case FIND_BY_ID:
+                return {
+                    ...state,
+                    dogDetail: payload
+                }
 
         default: return { ...state }
     }

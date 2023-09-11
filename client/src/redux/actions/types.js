@@ -3,6 +3,7 @@ const FILTER_DOGS = "FILTER_DOGS";
 const ALL_TEMPERAMENTS = "ALL_TEMPERAMENTS";
 const NEW_DOG = "NEW_DOG";
 const CHANGE_PAGE = "CHANGE_PAGE";
+const FIND_BY_ID = "FIND_BY_ID";
 
 export {
     ALL_DOGS,
@@ -10,4 +11,5 @@ export {
     ALL_TEMPERAMENTS,
     NEW_DOG,
     CHANGE_PAGE,
+    FIND_BY_ID,
 }

@@ -8,6 +8,7 @@ import SideBarFilter from './components/sideBarFilter';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import * as actions from '../src/redux/actions';
+import DetailDog from './components/detailDog';
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ function App() {
         <Route path='/' element={<LandingPage />} />
         <Route path='/home' element={<Cards onClose={handleOnClose} />} />
         <Route path='/newdog' element={<NewDog />} />
+        <Route path='/detail/:id' element={<DetailDog />} />
       </Routes>
     </div>
   );

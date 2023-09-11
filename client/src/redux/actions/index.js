@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ALL_DOGS, ALL_TEMPERAMENTS, FILTER_DOGS, NEW_DOG, CHANGE_PAGE } from './types';
+import { ALL_DOGS, ALL_TEMPERAMENTS, FILTER_DOGS, NEW_DOG, CHANGE_PAGE, FIND_BY_ID } from './types';
 import { TheDogAPI, TemperamentsAPI } from '../../config/endpoints';
 import { filterByTemperaments, orderBy, filterByName } from './middleware';
 
@@ -89,11 +89,29 @@ const newDog = (data) => {
     }
 };
 
+const findById = (id) => {
+    return (dispatch) => {
+        axios(`${TheDogAPI}/${id}`)
+            .then(({ data }) => {
+                return dispatch({
+                    type: FIND_BY_ID,
+                    payload: data,
+                });
+            })
+            .catch(error => {
+                return { error: error }
+            })
+    }
+}
+
+
+
 
 export {
     all_dogs,
     filter_dogs,
     all_temperaments,
     newDog,
-    changePage
+    changePage,
+    findById
 }

@@ -1,7 +1,7 @@
 import styles from './ControlSelecMulti.module.css';
 import React, { useEffect, useState } from 'react';
 
-function SelectorMultiple({ temperaments, handlerChange }) {
+function SelectorMultiple({ temperaments, handlerChange, cleanSelect = false }) {
 
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [options, setOptions] = useState([]);
@@ -16,7 +16,9 @@ function SelectorMultiple({ temperaments, handlerChange }) {
             });
         }
 
-    }, [options, temperaments]);
+        if (cleanSelect) setSelectedOptions([])
+
+    }, [options, temperaments, cleanSelect]);
 
     const optionsSelected = (e) => {
         const optionIndex = e.target.selectedIndex;
@@ -61,20 +63,18 @@ function SelectorMultiple({ temperaments, handlerChange }) {
                 ))}
             </select>
 
-            <div >
-                <p>Temperaments selected:</p>
-                <ul className={styles.containerListSelected}>
-                    {selectedOptions.map((option, index) => (
-                        <li key={index} className={styles.itemSelected}>
-                            {option.name}
-                            <div className={styles.close}
-                                onClick={() => optionsUnselected(option)}>
-                                x
-                            </div>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+            <ul className={styles.containerListSelected}>
+                {selectedOptions.map((option, index) => (
+                    <li key={index} className={styles.itemSelected}>
+                        {option.name}
+                        <div className={styles.close}
+                            onClick={() => optionsUnselected(option)}>
+                            x
+                        </div>
+                    </li>
+                ))}
+            </ul>
+
         </div>
     );
 }
