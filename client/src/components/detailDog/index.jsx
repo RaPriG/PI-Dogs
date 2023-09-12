@@ -1,27 +1,30 @@
 import { Link, useParams } from 'react-router-dom';
 import styles from './detailDog.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { findById } from '../../redux/actions';
-import imgBackground from '../../img/imgBackgroundPost.jpg';
-import { FaArrowLeft } from "react-icons/fa";
+
+
 const DetailDog = () => {
     const { id } = useParams();
+
     const dispatch = useDispatch();
+
     const dog = useSelector(state => state.dogDetail[0]);
+
     useEffect(() => {
+
         dispatch(findById(id));
+
     }, [dispatch, id]);
 
 
-    console.log(dog);
     return (
         <div className={styles.container}>
-            <Link to={'/home'} ><FaArrowLeft className={styles.iconBack}/></Link>
+            <Link to={'/home'} ><i className={`fas fa-undo-alt ${styles.iconBack}`}></i></Link>
             <div className={styles.containerDetail}>
 
                 <div className={styles.containerImg}>
-
                     <img src={dog?.image} alt={dog?.name} className={styles.img} />
                 </div>
 

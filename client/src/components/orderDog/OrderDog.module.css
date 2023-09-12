@@ -1,14 +1,14 @@
 .container{
     position: relative;
-    top:230px;
+    top:210px;
     font-size: x-small;
 }
 .titulo {
     position: absolute;
     width: 99%;
     height: 18px;
-    background-color: rgb(204, 221, 174);
-    color: rgb(104, 104, 104);
+    background-color: rgba(238, 168, 16, 0.658);
+    color: rgb(75, 75, 75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -19,6 +19,7 @@
 .containerInput{
     position: absolute;
     top:50px;
+    font-weight: bold;
 }
 
 .lineDivide{

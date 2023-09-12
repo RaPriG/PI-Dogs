@@ -8,8 +8,8 @@
     position: absolute;
     width: 99%;
     height: 18px;
-    background-color: rgb(204, 221, 174);
-    color: rgb(104, 104, 104);
+    background-color: rgba(216, 238, 16, 0.692);
+    color: rgb(75, 75, 75);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,6 +21,7 @@
     position: absolute;
     top: 50px;
     width: 100%;
+    font-weight: bold;
 }
 
 .select {

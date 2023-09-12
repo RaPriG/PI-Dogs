@@ -2,10 +2,11 @@
     position: absolute;
     border: 0px;
     padding: 0px;
-    height: 150vw;
+    height: 90%;
     width: 180px;
-    background: linear-gradient(to right, #0f9643, #38bd9c);
+    background: linear-gradient(to right, #0f9643cc, #38bd9c9d);
     box-shadow: 5px 5px 8px;
     z-index: 1;
+    border-radius: 0px 0px 10px 0px
 }
 

@@ -1,7 +1,6 @@
 .container {
     display: flex;
-    /* background-color: rgb(42, 42, 41); */
-    background: linear-gradient(to left, #06090e, #106e5a);
+    background: linear-gradient(to left, #06090e, #0e6653);
     align-items: center;
     justify-content: space-between;
     height: 40px;
@@ -25,8 +24,19 @@
     font-weight: bold;
 }
 
-.img{
+.img {
     width: 30px;
     margin: 8px;
 }
 
+.iconHome {
+    color: rgb(17, 216, 43);
+}
+
+.iconNew {
+    color: rgb(232, 198, 27);
+}
+
+.iconLogout {
+    color: rgb(28, 223, 230);
+}

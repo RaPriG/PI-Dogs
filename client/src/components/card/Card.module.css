@@ -1,16 +1,19 @@
 .container {
     position: relative;
+    display: flex;
     width: 150px;
     height: 180px;
     border: 1px solid black;
     margin: 5px;
-    background-color: rgb(6, 102, 57);
+    background-color: rgba(6, 102, 57, 0.507);
     color: black;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 4px 4px 8px;
-    /* animation: deslizar 2s ease-in-out forwards; */
+}
 
+.img:hover{
+    width: 135px;
 }
 
 .img {
@@ -31,7 +34,7 @@
     text-align: center;
     width: 100%;
     bottom: 0px;
-    background-color: rgba(4, 61, 39, 0.815);
+    background-color: rgba(4, 61, 39, 0.884);
     height: 42px;
     color: rgb(255, 255, 255);
     border-radius: 0px 0px 10px 10px;
@@ -68,14 +71,3 @@
     color: rgb(175, 255, 251);
 }
 
-@keyframes deslizar {
-    from {
-        right: -200px;
-        /* Comienza fuera de la pantalla a la derecha */
-    }
-
-    to {
-        right: 0;
-        /* Termina en la posición deseada */
-    }
-}

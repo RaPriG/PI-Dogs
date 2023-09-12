@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useState } from 'react';
 import SelectorMultiple from '../controlSelecMulti';
 import * as actions from '../../redux/actions';
-import imgBackground from '../../img/imgBackgroundPost.jpg';
+import { Link } from 'react-router-dom';
 
 const validate = (form) => {
     const regex = /^(ftp|http|https):\/\/[^ "]+$/;
@@ -132,9 +132,7 @@ const NewDog = () => {
 
     return (
         <div className={styles.container}>
-            <div>
-                <img className={styles.img} src={imgBackground} alt="Background" />
-            </div>
+           <Link to={'/home'} ><i className={`fas fa-undo-alt ${styles.iconBack}`}></i></Link>
             <form className={styles.form} onSubmit={handlerOnSumit}>
 
                 <div className={styles.containerInput}>
