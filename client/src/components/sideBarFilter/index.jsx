@@ -1,60 +1,44 @@
-import { useState } from 'react';
 import Search from '../searchBar';
 import FilterDog from '../filterDog';
 import OrderDog from '../orderDog';
 import styles from './sideBarFilter.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../redux/actions'
+import * as actions from '../../redux/actions';
 
 const BarraLateralFilter = () => {
     const temperaments = useSelector(state => state.temperaments);
+    const dataFilter = useSelector(state => state.dataFilter);
+    const showSideBar = useSelector(state => state.showSideBar);
     const dispatch = useDispatch();
-    const [dataFilter, setDataFilter] = useState({
-        name: '',
-        filter: {
-            fromApi: false,
-            fromDB: false,
-            temperaments: []
-        },
-        order: {
-            by: 'breed',
-            ascDesc: 'ascending',
-        }
-    });
+
+    const updateDataFilter = (newData) => {
+        dispatch(actions.updateDataFilter(newData));
+    }
 
     const handlerChangeName = (e) => {
         let { value } = e.target;
-        const newArray = {
+        const newDataFilter = {
             ...dataFilter,
             name: value,
         }
 
-        setDataFilter(newArray);
-        handlerOnClick(newArray);
+        applyFilter(newDataFilter);
     }
 
     const handlerChangeFilter = (data) => {
 
-        const newTemp = data.temperaments.map(temp => temp.name);
-        const { fromApi, fromDB } = data;
-        const newObj = {
+        const newDataFilter = {
             ...dataFilter,
-            filter: {
-                ...dataFilter.filter,
-                temperaments: newTemp,
-                fromApi,
-                fromDB
-            }
+            filter: data
         }
 
-        setDataFilter(newObj);
-        handlerOnClick(newObj);
+        applyFilter(newDataFilter);
     }
 
     const handlerChangeOrder = (data) => {
         const { name, value } = data.target;
 
-        const newObj = {
+        const newDataFilter = {
             ...dataFilter,
             order: {
                 ...dataFilter.order,
@@ -62,22 +46,47 @@ const BarraLateralFilter = () => {
             }
         }
 
-        setDataFilter(newObj);
-        handlerOnClick(newObj);
+        applyFilter(newDataFilter);
 
     }
 
-    const handlerOnClick = (newObj) => {
-        //se reinicia la paginacion para una nueva busqueda
+    const handlerOnClickShowMenu = () => {
+        dispatch(actions.isShowSideBar());
+    }
+
+    const resetPagionation = () => {
         dispatch(actions.changePage(1));
-        //busqueda por filter
-        dispatch(actions.filter_dogs(newObj));
     }
+
+    const applyFilter = (newDataFilter) => {
+
+        //update global state dataFilter
+        updateDataFilter(newDataFilter);
+
+        //se reinicia la paginacion para una nueva busqueda
+        resetPagionation();
+
+        //filter data
+        dispatch(actions.filter_dogs(newDataFilter));
+    }
+
     return (
-        <div className={styles.container}>
-            <Search handlerOnChange={handlerChangeName} />
+        <div className={showSideBar
+            ? `${styles.container} ${styles.show}`
+            : `${styles.container} ${styles.hide}`}>
+
+            <Search handlerOnChange={handlerChangeName}
+                name={dataFilter.name} />
+
             <FilterDog temperaments={temperaments} handlerOnChange={handlerChangeFilter} />
+
+            <i className={showSideBar
+                ? `fas fa-bars ${styles.iconShowSideBar} ${styles.posIconShowSideBar}`
+                : `fas fa-bars ${styles.iconShowSideBar} ${styles.posIconHideSideBar}`} 
+                onClick={handlerOnClickShowMenu}></i>
+
             <OrderDog handlerOnChange={handlerChangeOrder} dataOrder={dataFilter.order} />
+
         </div>
     )
 }

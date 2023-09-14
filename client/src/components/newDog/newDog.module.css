@@ -3,7 +3,10 @@
     height: 100%;
     position: absolute;
     font-size: 10px;
-   
+    background-image: url('../../img/background.jpg');
+    background-size: cover;
+    /* Ajusta el tamaño de la imagen para cubrir toda la ventana */
+    background-repeat: no-repeat;
 }
 
 .form {

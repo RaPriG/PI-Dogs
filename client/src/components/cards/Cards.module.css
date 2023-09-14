@@ -1,10 +1,28 @@
 .container {
+    position: relative;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+}
+
+.containerCards {
     width: 80%;
     display: flex;
     flex-wrap: wrap;
-    margin: auto;
     justify-content: center;
-    position: absolute;
-    left: 180px;
-    
+    height: 80vh;
+    background-image: url('../../img/backgroundHome.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+  
+}
+
+.centerContainer {
+    left: 0px;
+    transition: left 2s ease-in;
+}
+
+.endContainer {
+    left: 90px;
+    transition: left 1.5s ease-in-out;
 }

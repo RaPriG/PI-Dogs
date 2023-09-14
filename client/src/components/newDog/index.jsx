@@ -56,7 +56,7 @@ const NewDog = () => {
 
     const temperaments = useSelector(state => state.temperaments);
 
-    const [cleanSelect, setCleanSelect] = useState(false);
+    const [cleanTempSelect, setCleanTempSelect] = useState(false);
     const [dog, setDog] = useState({
         name: '',
         weight_min: 0,
@@ -82,7 +82,7 @@ const NewDog = () => {
             temperaments: [],
             image: ''
         });
-        setCleanSelect(true);
+        setCleanTempSelect(true);
     }
 
     const [errors, setErrors] = useState([]);
@@ -117,22 +117,27 @@ const NewDog = () => {
 
         const life_span = `${dog.life_span_min} - ${dog.life_span_max} years`;
 
+        let finalObjDog = mappinObj(temp, life_span);
+
+        dispatch(actions.newDog(finalObjDog))
+
+        limpiarDog();
+
+        (() => alert("Dog Saved"))();
+    }
+
+    const mappinObj = (temp, life_span) => {
         let finalObjDog = { ...dog };
         delete finalObjDog.life_span_min;
         delete finalObjDog.life_span_max;
         finalObjDog.life_span = life_span;
         finalObjDog = { ...finalObjDog, temperaments: temp }
-        console.log(finalObjDog);
-        dispatch(actions.newDog(finalObjDog))
-
-        limpiarDog();
-
-        alert("Dog Saved");
+        return finalObjDog;
     }
 
     return (
         <div className={styles.container}>
-           <Link to={'/home'} ><i className={`fas fa-undo-alt ${styles.iconBack}`}></i></Link>
+            <Link to={'/home'} ><i className={`fas fa-undo-alt ${styles.iconBack}`}></i></Link>
             <form className={styles.form} onSubmit={handlerOnSumit}>
 
                 <div className={styles.containerInput}>
@@ -212,7 +217,8 @@ const NewDog = () => {
                     <label className={styles.label}>Temperaments Selected:</label>
                     <SelectorMultiple
                         temperaments={temperaments}
-                        cleanSelect={cleanSelect}
+                        cleanSelect={cleanTempSelect}
+                        setCleanSelect={setCleanTempSelect}
                         handlerChange={handlerSelectTemperaments} />
                 </div>
                 <div className={styles.containerInput}>

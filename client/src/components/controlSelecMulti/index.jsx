@@ -1,10 +1,13 @@
+import { useSelector } from 'react-redux';
 import styles from './ControlSelecMulti.module.css';
 import React, { useEffect, useState } from 'react';
+import { } from '../../redux/actions'
 
-function SelectorMultiple({ temperaments, handlerChange, cleanSelect = false }) {
+function SelectorMultiple({ temperaments, handlerChange, desdeFilter = false, cleanSelect = false, setCleanSelect }) {
 
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [options, setOptions] = useState([]);
+    const optionsSelectedGlobal = useSelector(state => state.dataFilter.filter.temperaments);
 
     useEffect(() => {
 
@@ -15,10 +18,21 @@ function SelectorMultiple({ temperaments, handlerChange, cleanSelect = false }) 
                 });
             });
         }
+        //orden desde otro componente para limpiar la seleccion de temperamentos
 
-        if (cleanSelect) setSelectedOptions([])
+        if (cleanSelect) {
+            setSelectedOptions([])
+            setCleanSelect(false)
+        }
 
-    }, [options, temperaments, cleanSelect]);
+        //si hay temperamentos seleccionados desde filter
+        if (optionsSelectedGlobal.length && desdeFilter) {
+            const temp = temperaments.filter(t => optionsSelectedGlobal.includes(t.name))
+            setSelectedOptions(temp);
+        }
+
+
+    }, [options, temperaments, cleanSelect, optionsSelectedGlobal, desdeFilter, setCleanSelect]);
 
     const optionsSelected = (e) => {
         const optionIndex = e.target.selectedIndex;
@@ -74,7 +88,6 @@ function SelectorMultiple({ temperaments, handlerChange, cleanSelect = false }) 
                     </li>
                 ))}
             </ul>
-
         </div>
     );
 }

@@ -1,7 +1,17 @@
 import axios from 'axios';
-import { ALL_DOGS, ALL_TEMPERAMENTS, FILTER_DOGS, NEW_DOG, CHANGE_PAGE, FIND_BY_ID } from './types';
+import {
+    ALL_DOGS,
+    ALL_TEMPERAMENTS,
+    FILTER_DOGS,
+    NEW_DOG,
+    CHANGE_PAGE,
+    FIND_BY_ID,
+    UPDATE_DATA_FILTER,
+    IS_SHOW_SIDE_BAR
+} from './types';
 import { TheDogAPI, TemperamentsAPI } from '../../config/endpoints';
 import { filterByTemperaments, orderBy, filterByName } from './middleware';
+
 
 const changePage = (pageNumber) => {
     return {
@@ -72,15 +82,17 @@ const all_temperaments = () => {
 };
 
 const newDog = (data) => {
+  
     return (dispatch) => {
 
         axios.post(TheDogAPI, {
             ...data
         })
-            .then(({ data }) => {
+            .then((response) => {
+
                 return dispatch({
                     type: NEW_DOG,
-                    payload: data
+                    payload: response.data.dogReg
                 });
             })
             .catch(error => {
@@ -90,6 +102,10 @@ const newDog = (data) => {
 };
 
 const findById = (id) => {
+    if (id === false) return {
+        type: FIND_BY_ID,
+        payload: [],
+    }
     return (dispatch) => {
         axios(`${TheDogAPI}/${id}`)
             .then(({ data }) => {
@@ -104,6 +120,19 @@ const findById = (id) => {
     }
 }
 
+const updateDataFilter = (data) => {
+    return {
+        type: UPDATE_DATA_FILTER,
+        payload: data
+    }
+}
+
+const isShowSideBar = () => {
+    return {
+        type: IS_SHOW_SIDE_BAR,
+    }
+}
+
 
 
 
@@ -113,5 +142,7 @@ export {
     all_temperaments,
     newDog,
     changePage,
-    findById
+    findById,
+    updateDataFilter,
+    isShowSideBar
 }

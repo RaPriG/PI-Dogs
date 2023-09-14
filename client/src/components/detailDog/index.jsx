@@ -16,6 +16,10 @@ const DetailDog = () => {
 
         dispatch(findById(id));
 
+        return () => {
+            dispatch(findById(false));
+        }
+
     }, [dispatch, id]);
 
 
@@ -29,10 +33,10 @@ const DetailDog = () => {
                 </div>
 
                 <div style={{ margin: 10 }}>
-                    <h2 className={styles.name}>Breed: {dog?.name}</h2>
                     <h2 className={styles.id}>ID: {dog?.id}</h2>
-                    <h2 className={styles.height}>Height: {dog?.height_min} - {dog?.height_max}</h2>
-                    <h2 className={styles.weight}>Weight: {dog?.weight_min} - {dog?.weight_max}</h2>
+                    <h2 className={styles.name}>Breed: {dog?.name}</h2>
+                    <h2 className={styles.height}>Height: {dog?.height_min}cm - {dog?.height_max}cm</h2>
+                    <h2 className={styles.weight}>Weight: {dog?.weight_min}kg - {dog?.weight_max}kg</h2>
                     <h2 className={styles.temperament}>Temperaments: {dog?.temperament}</h2>
                     <h2 className={styles.lifeSpan}>Life Span: {dog?.life_span}</h2>
                 </div>

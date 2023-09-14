@@ -29,14 +29,7 @@
     margin: 8px;
 }
 
-.iconHome {
-    color: rgb(17, 216, 43);
-}
-
-.iconNew {
-    color: rgb(232, 198, 27);
-}
-
-.iconLogout {
-    color: rgb(28, 223, 230);
+.icon {
+  
+    color: rgba(216, 238, 16, 0.774);
 }

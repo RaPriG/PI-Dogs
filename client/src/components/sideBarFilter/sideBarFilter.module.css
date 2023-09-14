@@ -2,11 +2,64 @@
     position: absolute;
     border: 0px;
     padding: 0px;
-    height: 90%;
+    height: 400px;
     width: 180px;
     background: linear-gradient(to right, #0f9643cc, #38bd9c9d);
     box-shadow: 5px 5px 8px;
     z-index: 1;
-    border-radius: 0px 0px 10px 0px
+    border-radius: 0px 0px 10px 0px;
+
 }
 
+.hide {
+    animation: hide 1.5s ease-in-out forwards;
+    left: -200px;
+}
+
+.show {
+    animation: show 1.5s ease-in-out forwards;
+    left:0px;
+}
+
+.iconShowSideBar {
+    position: absolute;
+    color: rgb(15, 15, 15);
+    cursor: pointer;
+    top: 2px;
+
+}
+
+.posIconShowSideBar{
+    left: 160px;
+    transition: left 1s ease;
+}
+
+.posIconHideSideBar{
+    left: 205px;
+    transition: left 2s ease;
+}
+
+@keyframes hide {
+    from {
+        left: 0px;
+        /* Comienza fuera de la pantalla a la izquierda */
+    }
+
+    to {
+        left: -200;
+        /* Termina en la posición deseada */
+        
+    }
+}
+
+@keyframes show {
+    from {
+        left: -200px;
+        /* Comienza fuera de la pantalla a la izquierda */
+    }
+
+    to {
+        left: 200;
+        /* Termina en la posición deseada */
+    }
+}

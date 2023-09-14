@@ -5,11 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-image: url('../src/img/imgBackground.jpg');
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir toda la ventana */
-    background-repeat: no-repeat;
- 
+  background-color: #f7f0b3;
 }
 
 code {

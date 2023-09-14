@@ -3,7 +3,10 @@
     height: 100%;
     position: absolute;
     font-size: 10px;
-   
+    background-image: url('../../img/background.jpg');
+    background-size: cover;
+    /* Ajusta el tamaño de la imagen para cubrir toda la ventana */
+    background-repeat: no-repeat;
 }
 
 .containerDetail {
@@ -15,7 +18,7 @@
     height: auto;
     transform: translate(-50%);
     border-radius: 20px;
-    animation: deslizar 2.2s ease-in-out forwards;
+    animation: deslizar 1.8s ease-in-out forwards;
    
 }
 

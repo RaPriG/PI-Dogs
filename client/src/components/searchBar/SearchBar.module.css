@@ -20,12 +20,14 @@
     position: absolute;
     width: 99%;
     height: 18px;
-    background-color: rgba(17, 216, 44, 0.568);
-    color: rgb(75, 75, 75);
+    background-color: rgba(238, 168, 16, 0.562);
+    color: rgb(49, 49, 49);
     top: -18px;
     display: flex;
     align-items: center;
     justify-content: center;
     left: 2px;
     font-size: 11px;
+
 }
+

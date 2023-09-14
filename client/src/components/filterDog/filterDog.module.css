@@ -8,8 +8,8 @@
     position: absolute;
     width: 99%;
     height: 18px;
-    background-color: rgba(216, 238, 16, 0.692);
-    color: rgb(75, 75, 75);
+    background-color: rgba(238, 168, 16, 0.562);
+    color: rgb(49, 49, 49);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -22,14 +22,6 @@
     top: 50px;
     width: 100%;
     font-weight: bold;
-}
-
-.select {
-    font-size: xx-small;
-    background-color: rgb(175, 214, 34);
-    min-height: 120px;
-    height: 120px;
-    overflow: scroll;
 }
 
 .containerSelecMulti{

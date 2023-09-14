@@ -4,7 +4,9 @@ import {
     ALL_TEMPERAMENTS,
     NEW_DOG,
     CHANGE_PAGE,
-    FIND_BY_ID
+    FIND_BY_ID,
+    UPDATE_DATA_FILTER,
+    IS_SHOW_SIDE_BAR
 } from '../actions/types';
 
 const inicialState = {
@@ -15,7 +17,20 @@ const inicialState = {
         itemsPerPage: 8,
         buttonPagination: 5,
     },
-    dogDetail: []
+    dogDetail: [],
+    dataFilter: {
+        name: '',
+        filter: {
+            fromApi: false,
+            fromDB: false,
+            temperaments: []
+        },
+        order: {
+            by: 'breed',
+            ascDesc: 'ascending',
+        }
+    },
+    showSideBar:true,
 }
 
 const rootReducer = (state = inicialState, { type, payload }) => {
@@ -39,6 +54,7 @@ const rootReducer = (state = inicialState, { type, payload }) => {
             }
 
         case NEW_DOG:
+         
             return {
                 ...state,
                 dogs: [...state.dogs, payload]
@@ -53,11 +69,24 @@ const rootReducer = (state = inicialState, { type, payload }) => {
                 }
             }
 
-            case FIND_BY_ID:
-                return {
-                    ...state,
-                    dogDetail: payload
-                }
+        case FIND_BY_ID:
+        
+            return {
+                ...state,
+                dogDetail: payload
+            }
+
+        case UPDATE_DATA_FILTER:
+            return {
+                ...state,
+                dataFilter: payload
+            }
+
+        case IS_SHOW_SIDE_BAR:
+            return {
+                ...state,
+                showSideBar: !state.showSideBar
+            }
 
         default: return { ...state }
     }

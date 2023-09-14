@@ -10,16 +10,17 @@ const NavBar = (fnFilterDogs) => {
                     <img className={styles.img} src={imgHuella} alt="huella" />
                 </Link>
             </div>
+            
             <div>
                 <ul className={styles.menu}>
                     <Link to={'/home'} className={styles.item}>
-                        <i className={`fas fa-home ${styles.iconHome}`} ></i>
+                        <i className={`fas fa-home ${styles.icon}`} ></i>
                     </Link>
                     <Link to={'/newdog'} className={styles.item}>
-                        <i className={`fas fa-plus-square ${styles.iconNew}`}></i>
+                        <i className={`fas fa-plus-square ${styles.icon}`}></i>
                     </Link>
                     <Link to={'/'} className={styles.item}>
-                        <i className={`fas fa-sign-out-alt ${styles.iconLogout}`}></i>
+                        <i className={`fas fa-sign-out-alt ${styles.icon}`}></i>
                     </Link>
                 </ul>
             </div>

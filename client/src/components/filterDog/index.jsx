@@ -1,22 +1,18 @@
-import { useState } from 'react';
 import styles from './filterDog.module.css';
 import SelectorMultiple from '../controlSelecMulti';
+import { useSelector } from 'react-redux';
 
 const FilterAndOrder = ({ temperaments, handlerOnChange }) => {
 
-    const [filter, setFilter] = useState({
-        temperaments: [],
-        fromApi: false,
-        fromDB: false
-    });
+    const filter = useSelector(state => state.dataFilter.filter);
 
     const handlerSelectTemperaments = (selected) => {
+        const tempSelec = selected.map(temp => temp.name);
         const newFilter = {
             ...filter,
-            temperaments: selected
+            temperaments: tempSelec
         }
 
-        setFilter(newFilter);
         handlerOnChange(newFilter);
     }
 
@@ -27,7 +23,6 @@ const FilterAndOrder = ({ temperaments, handlerOnChange }) => {
             [name]: checked,
         }
 
-        setFilter(newFilter);
         handlerOnChange(newFilter);
     }
 
@@ -38,6 +33,7 @@ const FilterAndOrder = ({ temperaments, handlerOnChange }) => {
 
                 <SelectorMultiple
                     temperaments={temperaments}
+                    desdeFilter={true}
                     handlerChange={handlerSelectTemperaments} />
 
                 <br />
@@ -45,7 +41,7 @@ const FilterAndOrder = ({ temperaments, handlerOnChange }) => {
                     <input className={styles.input}
                         type='checkbox'
                         name='fromApi'
-                        value={filter.fromApi}
+                        checked={filter.fromApi}
                         onChange={handlerChangeFilterFrom} />From Api
                 </label>
                 <br />
@@ -53,7 +49,7 @@ const FilterAndOrder = ({ temperaments, handlerOnChange }) => {
                     <input className={styles.input}
                         type='checkbox'
                         name='fromDB'
-                        value={filter.fromDB}
+                        checked={filter.fromDB}
                         onChange={handlerChangeFilterFrom} />From DB
                 </label>
             </div>

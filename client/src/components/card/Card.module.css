@@ -10,6 +10,7 @@
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 4px 4px 8px;
+    z-index: 2;
 }
 
 .img:hover{
