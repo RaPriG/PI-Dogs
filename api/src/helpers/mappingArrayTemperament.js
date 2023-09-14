@@ -1,5 +1,5 @@
 
-
+// se le da el formato correcto a los temperamentos separados por obj obtenido de la tabla de relacion de dog y temp
 const arrayTemperaments = (dogsFromDB) => {
     
     const dogsWithTemperaments = [...dogsFromDB].map(dog => {

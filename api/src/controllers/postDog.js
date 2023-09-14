@@ -1,35 +1,19 @@
-const { Dog, Temperament } = require('../db');
+const createDog = require('../handlers/dataHandlers/postDog');
+const findTemperamentsByIds = require('../handlers/dataHandlers/findTemperamentsByIds');
+const mappingRespNewDog = require('../helpers/mappingRespNewDog');
 
 const postDog = async (req, res) => {
     try {
-        const {
-            name,
-            weight_min,
-            weight_max,
-            height_min,
-            height_max,
-            life_span,
-            image,
-            temperaments: temperamentsSelec } = req.body;
-        const dogs = await Dog.create({
-            name,
-            weight_min,
-            weight_max,
-            height_min,
-            height_max,
-            life_span,
-            image,
-        });
 
-        const temperaments = await Temperament.findAll({
-            where: {
-                id: temperamentsSelec
-            }
-        });
+        const arrayTempId = req.body.temperaments;
 
-        await dogs.addTemperaments(temperaments);
+        const respFindtemperaments = await findTemperamentsByIds(arrayTempId);
+        console.log("respFindtemperaments1",respFindtemperaments);
+        const dogs = await createDog(req.body, respFindtemperaments);
+      
+        const respDogReg = mappingRespNewDog({ ...dogs.dataValues }, respFindtemperaments);
 
-        res.status(201).send("Regitro realizado");
+        res.status(201).json({ response: "Regitro realizado", dogReg: respDogReg });
 
     } catch (error) {
         res.status(500).json({ error: error });

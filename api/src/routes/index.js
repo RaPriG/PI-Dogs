@@ -9,8 +9,4 @@ router.use('/temperaments',temperaments);
 router.use('/dogs',dogs);
 
 
-
-
-
-
 module.exports = router;
