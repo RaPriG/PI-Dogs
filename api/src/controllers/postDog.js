@@ -8,7 +8,7 @@ const postDog = async (req, res) => {
         const arrayTempId = req.body.temperaments;
 
         const respFindtemperaments = await findTemperamentsByIds(arrayTempId);
-        console.log("respFindtemperaments1",respFindtemperaments);
+
         const dogs = await createDog(req.body, respFindtemperaments);
       
         const respDogReg = mappingRespNewDog({ ...dogs.dataValues }, respFindtemperaments);

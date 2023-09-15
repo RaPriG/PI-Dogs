@@ -1,6 +1,5 @@
 const { DataTypes } = require('sequelize');
-// Exportamos una funcion que define el modelo
-// Luego le injectamos la conexion a sequelize.
+
 module.exports = (sequelize) => {
   sequelize.define('dog', {
     id: {
@@ -39,10 +38,3 @@ module.exports = (sequelize) => {
     },
   });
 };
-
-
-// const reference_image_id = "r1I4hl5Em";
-
-
-// const base_url = `https://api.thedogapi.com/v1/images/${reference_image_id}`;
-// console.log(base_url);
