@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -L",
-    "test": "mocha -w ./tests/**/*.spec.js"
+    "build": "tsc",
+    "start": "node ../api/src/app.js"
   },
   "author": "Henry",
   "license": "ISC",
