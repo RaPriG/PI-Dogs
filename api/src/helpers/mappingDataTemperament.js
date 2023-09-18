@@ -18,6 +18,7 @@ const mappingDataTemperament = (data) => {
 
     const newArrayTemp = arrayConvert.map(temp => { return { name: temp } });
 
+    
     return newArrayTemp;
 }
 

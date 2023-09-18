@@ -19,7 +19,7 @@ const createDog = async ({
         life_span,
         image,
     });
-    console.log("respFindtemperaments2", respFindtemperaments);
+
     await dogs.addTemperaments(respFindtemperaments);
 
     return dogs;
