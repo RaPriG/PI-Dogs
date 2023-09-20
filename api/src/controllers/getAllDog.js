@@ -22,6 +22,7 @@ const getAllDogs = async (req, res) => {
 
         Error(res, 500, error);
     }
+    
 }
 
 module.exports = getAllDogs;
