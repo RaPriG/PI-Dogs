@@ -225,7 +225,7 @@ const NewDog = () => {
                     <label className={styles.label}>Image:</label>
                     <input className={styles.input}
                         type='text'
-                        placeholder="Imgage"
+                        placeholder="Image"
                         name='image'
                         value={dog.image}
                         onChange={handlerOnChange} />
