@@ -230,7 +230,6 @@ const NewDog = () => {
                         value={dog.image}
                         onChange={handlerOnChange} />
                 </div>
-
                 {errors.length ? <div style={{ color: 'red' }}>{errors[0]}</div> : null}
                 <button className={styles.btn}
                     type='submit'>Save</button>
