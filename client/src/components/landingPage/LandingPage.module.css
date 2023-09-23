@@ -15,19 +15,19 @@
         margin-bottom: 20px;
     }
 
-    .btn {
-        position: absolute;
-        top: 50px
-    }
-
     .info {
         position: absolute;
-        top: 0%
+        top: 40px
+    }
+
+    .btn {
+        position: absolute;
+        top: 90px
     }
 
     .img {
         position: absolute;
-        top: 80px;
+        top: 110px;
         width: 100%;
     }
 }
