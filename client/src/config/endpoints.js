@@ -1,5 +1,5 @@
 
-const URL_BASE = 'http://localhost:3001/api';
+const URL_BASE = 'https://pruebaserver-gd8u.onrender.com/api';
 
 const TemperamentsAPI = `${URL_BASE}/temperaments`;
 
