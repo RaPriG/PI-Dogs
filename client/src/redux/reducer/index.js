@@ -30,7 +30,7 @@ const inicialState = {
             ascDesc: 'ascending',
         }
     },
-    showSideBar:true,
+    showSideBar:false,
 }
 
 const rootReducer = (state = inicialState, { type, payload }) => {
