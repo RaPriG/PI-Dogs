@@ -7,6 +7,27 @@
 @media (max-width:700px) {
     .container {
         flex-direction: column;
+        height: 100vh;
+    }
+
+    .containerInfo {
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        position: absolute;
+        top: 50px
+    }
+
+    .info {
+        position: absolute;
+        top: 0%
+    }
+
+    .img {
+        position: absolute;
+        top: 80px;
+        width: 100%;
     }
 }
 
@@ -51,8 +72,8 @@
 .info {
     position: absolute;
     top: 30%;
-    left:20%;
-    font-size:x-large;
+    left: 20%;
+    font-size: x-large;
     font-weight: bold;
 }
 
@@ -77,6 +98,6 @@
     color: #b92726;
 }
 
-.nombre{
+.nombre {
     font-family: Times;
 }
