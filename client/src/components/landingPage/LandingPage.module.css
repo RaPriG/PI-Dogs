@@ -11,23 +11,18 @@
         background: black;
     }
 
-    .containerInfo {
-        margin-bottom: 20px;
-    }
-
-    .info {
-        position: absolute;
-        top: 40px
+    .info{
+        margin-top: 10px;
     }
 
     .btn {
         position: absolute;
-        top: 90px
+        top: 75px
     }
 
     .img {
         position: absolute;
-        top: 110px;
+        top: 115px;
         width: 100%;
     }
 }
@@ -42,6 +37,7 @@
     /* Centrar horizontalmente */
     justify-content: center;
     color: white;
+    margin-bottom: 20px;
 }
 
 .containerImg {
