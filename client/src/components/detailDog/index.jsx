@@ -25,7 +25,7 @@ const DetailDog = () => {
 
     return (
         <div className={styles.container}>
-            <Link to={'/home'} ><i className={`fas fa-undo-alt ${styles.iconBack}`}></i></Link>
+            <div style={{zIndex:3}}><Link to={'/home'} ><i className={`fas fa-undo-alt ${styles.iconBack}`}></i></Link></div>
             <div className={styles.containerDetail}>
 
                 <div className={styles.containerImg}>

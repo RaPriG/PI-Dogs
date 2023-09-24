@@ -6,7 +6,7 @@
     width: 180px;
     background: linear-gradient(to right, #0f9643cc, #38bd9c9d);
     box-shadow: 5px 5px 8px;
-    z-index: 2;
+    z-index: 3;
     border-radius: 0px 0px 10px 0px;
 
 }

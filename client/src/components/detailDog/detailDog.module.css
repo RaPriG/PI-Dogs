@@ -7,6 +7,7 @@
     background-size: cover;
     /* Ajusta el tamaño de la imagen para cubrir toda la ventana */
     background-repeat: no-repeat;
+    z-index: 0;
 }
 
 .containerDetail {
@@ -19,13 +20,15 @@
     transform: translate(-50%);
     border-radius: 20px;
     animation: deslizar 1.8s ease-in-out forwards;
-   
+z-index: 1;
 }
 
 .iconBack {
+    position: relative;
     margin: 15px;
     font-size: 30px;
     color: rgb(5, 102, 109);
+z-index: 2;
 }
 
 .containerImg {
